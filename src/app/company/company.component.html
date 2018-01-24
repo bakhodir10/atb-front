@@ -3,14 +3,23 @@
   <tr>
     <th scope="col">#</th>
     <th scope="col">Name</th>
-    <th scope="col">Verify</th>
+    <th>Status</th>
+    <th scope="col">Activate</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let com of companies">
-    <th *ngIf="!com.active" scope="row">{{com.id}}</th>
-    <td *ngIf="!com.active">{{com.name}}</td>
-    <td *ngIf="!com.active" style="cursor: pointer" class="glyphicon glyphicon-ok"></td>
+    <th scope="row">{{com.id}}</th>
+    <td>{{com.name}}</td>
+    <td *ngIf="!com.active">
+      <button type="button" class="btn btn-danger">Not active</button>
+    </td>
+    <td *ngIf="com.active">
+      <button type="button" class="btn btn-success">Active</button>
+    </td>
+    <td *ngIf="!com.active" style="cursor: pointer" class="glyphicon glyphicon-ok-circle" (click)="proccess(com)">
+    <td *ngIf="com.active" style="cursor: pointer" class="glyphicon glyphicon-remove-circle" (click)="proccess(com)">
+    </td>
   </tr>
   </tbody>
 </table>

@@ -46,10 +46,17 @@ export class CompanyServiceImpl implements CompanyService {
       .then(() => null)
   }
 
-  verify(id:number): void {
-    const url = data.default.server + data.default.port + data.default.url + '/companies';
-      this.http.post(url + '/verify', JSON.stringify(id))
+  activate(id:number): void {
+    const url = data.default.server + data.default.port + data.default.url + '/companies/activate';
+      this.http.post(url, {id})
         .toPromise()
         .then(res => {})
+  }
+
+  deactivate(id:number): void {
+    const url = data.default.server + data.default.port + data.default.url + '/companies/deactivate';
+    this.http.post(url, {id})
+      .toPromise()
+      .then(res => {})
   }
 }

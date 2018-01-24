@@ -11,10 +11,8 @@ import {CompanyService} from 'app/company/company.service';
 
 export class CompanyComponent implements OnInit {
   companies: Company[];
-
   ngOnInit(): void {
     this.getList();
-    // this.findOne(1);
   }
 
   constructor(@Inject('CompanyService') private companyService: CompanyService) {
@@ -31,5 +29,16 @@ export class CompanyComponent implements OnInit {
     this.companyService.findOne(id).then(res => {
       console.log(res);
     })
+  }
+
+  proccess(company: Company ){
+    if(!company.active){
+      this.companyService.activate(company.id);
+      company.active = true;
+    }
+    else {
+      this.companyService.deactivate(company.id);
+      company.active = false;
+    }
   }
 }
