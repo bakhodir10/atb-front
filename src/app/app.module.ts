@@ -16,10 +16,15 @@ import {AirportComponent} from './airport/airport.component';
 import {AirportServiceImpl} from './airport/airport.service.impl';
 import {AirplaneServiceImpl} from './airplane/airplane.service.impl';
 import {AirplaneComponent} from './airplane/airplane.component';
+import {BookingComponent} from './booking/booking.component';
+import {BookingServiceImpl} from './booking/booking.service.impl';
+import {LoginComponent} from './login/login.component';
+import {AuthService} from './login/auth.service';
 @NgModule({
   declarations: [
     AppComponent, CompanyComponent, AboutComponent, CustomerComponent,
-    FlightComponent, AirportComponent, AirplaneComponent
+    FlightComponent, AirportComponent, AirplaneComponent, BookingComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule, HttpModule, AppRouteModule
@@ -44,7 +49,12 @@ import {AirplaneComponent} from './airplane/airplane.component';
     {
       provide: 'AirplaneService',
       useClass: AirplaneServiceImpl
-    }
+    },
+    {
+      provide: 'BookingService',
+      useClass: BookingServiceImpl
+    },
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

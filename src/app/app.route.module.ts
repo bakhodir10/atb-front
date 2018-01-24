@@ -6,6 +6,8 @@ import {CustomerComponent} from './customer/customer.component';
 import {FlightComponent} from './flight/flight.component';
 import {AirportComponent} from './airport/airport.component';
 import {AirplaneComponent} from './airplane/airplane.component';
+import {BookingComponent} from './booking/booking.component';
+import {LoginComponent} from './login/login.component';
 
 const routes : Routes = [
   {path: 'companies', component: CompanyComponent},
@@ -13,7 +15,9 @@ const routes : Routes = [
   {path: 'customers', component: CustomerComponent},
   {path: 'flights', component: FlightComponent},
   {path: 'airports', component: AirportComponent},
-  {path: 'airplanes', component: AirplaneComponent}
+  {path: 'airplanes', component: AirplaneComponent},
+  {path: 'bookings', component: BookingComponent},
+  {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({
