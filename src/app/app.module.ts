@@ -20,14 +20,16 @@ import {BookingComponent} from './booking/booking.component';
 import {BookingServiceImpl} from './booking/booking.service.impl';
 import {LoginComponent} from './login/login.component';
 import {AuthService} from './login/auth.service';
+import { FormsModule } from '@angular/forms';
+import {AdminComponent} from './admin/admin.component';
 @NgModule({
   declarations: [
     AppComponent, CompanyComponent, AboutComponent, CustomerComponent,
     FlightComponent, AirportComponent, AirplaneComponent, BookingComponent,
-    LoginComponent
+    LoginComponent,AdminComponent
   ],
   imports: [
-    BrowserModule, HttpModule, AppRouteModule
+    BrowserModule, HttpModule, AppRouteModule, FormsModule
   ],
   providers: [
     {

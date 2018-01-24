@@ -11,7 +11,7 @@ export class BaseServiceImpl<T> implements BaseService<T> {
   }
 
   create(entity: T): Promise<T> {
-    return this.http.post(this.url, JSON.stringify(entity))
+    return this.http.post(this.url + '/create', JSON.stringify(entity))
       .toPromise()
       .then(res => res.json() as T)
       .catch(this.handleError);

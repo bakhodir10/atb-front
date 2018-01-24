@@ -8,13 +8,20 @@ import {AirportComponent} from './airport/airport.component';
 import {AirplaneComponent} from './airplane/airplane.component';
 import {BookingComponent} from './booking/booking.component';
 import {LoginComponent} from './login/login.component';
+import {AdminComponent} from './admin/admin.component';
 
 const routes : Routes = [
-  {path: 'companies', component: CompanyComponent},
+  {path: '', component: FlightComponent},
   {path: 'about', component: AboutComponent},
-  {path: 'customers', component: CustomerComponent},
-  {path: 'flights', component: FlightComponent},
-  {path: 'airports', component: AirportComponent},
+  {path: 'customers', component: CustomerComponent,},
+  {
+    path: 'admin',
+    component: AdminComponent,
+    children: [
+      {path: 'airports', component: AirportComponent},
+      {path: 'companies', component: CompanyComponent},
+    ]
+  },
   {path: 'airplanes', component: AirplaneComponent},
   {path: 'bookings', component: BookingComponent},
   {path: 'login', component: LoginComponent}

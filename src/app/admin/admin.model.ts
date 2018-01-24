@@ -1,5 +1,5 @@
 import {BaseModel} from '../base/base.model';
-export class Company extends BaseModel {
+
+export class Admin extends BaseModel{
   name: string;
-  active:boolean;
 }

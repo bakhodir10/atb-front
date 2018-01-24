@@ -1,5 +1,16 @@
-<ul class="users">
-  <li *ngFor="let company of companies">
-    <span class="badge">{{company.id}}</span> {{company.name}}
-  </li>
-</ul>
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Verify</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let com of companies">
+    <th *ngIf="!com.active" scope="row">{{com.id}}</th>
+    <td *ngIf="!com.active">{{com.name}}</td>
+    <td *ngIf="!com.active" style="cursor: pointer" class="glyphicon glyphicon-ok"></td>
+  </tr>
+  </tbody>
+</table>
