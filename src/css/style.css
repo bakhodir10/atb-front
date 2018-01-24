@@ -1,0 +1,12 @@
+.search-details tr td{
+  padding-right:10px;
+}
+
+.input{
+  border-radius: 2px;
+}
+
+.jumbotron {
+  background-color: #44a;
+  color: #fff;
+}
