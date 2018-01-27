@@ -24,13 +24,13 @@
         </tr>
         <tr>
           <td>
-            <input type="text" class="form-control" size="30" name="from" placeholder="Flying From" required>
+            <input [(ngModel)]="flight.locationFrom" name="locationFrom" class="form-control" size="30" placeholder="Flying From">
           </td>
           <td>
-            <input type="text" [(ngModel)]="flight.to" name="to" class="form-control" size="30" placeholder="Flying To" required>
+            <input [(ngModel)]="flight.locationTo" name="locationTo" class="form-control" size="30" placeholder="Flying To">
           </td>
           <td>
-            <input type="date" class="form-control" name="departure" size="30" placeholder="Departing" required>
+            <input [(ngModel)]="flight.date" class="form-control" name="date" size="30" placeholder="Date" type="date">
           </td>
           <td>
             <div class="dropdown">
@@ -41,9 +41,10 @@
                 <li><a href="#">1 Adult</a></li>
               </ul>
             </div>
+
           </td>
           <td>
-            <button type="button" class="btn btn-danger" (click)="check()">Search</button>
+            <button type="button" class="btn btn-danger" (click)="searchFlight()">Search</button>
           </td>
         </tr>
       </table>
