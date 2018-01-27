@@ -6,6 +6,7 @@ export class Flight extends BaseModel{
   price: number;
   from : Airport;
   to : Airport;
+  time : string;
   locationFrom : string;
   locationTo : string;
 }

@@ -39,7 +39,7 @@ export class FlightServiceImpl implements FlightService {
   search(flyingFrom: string, flyingTo: string, date : Date): Promise<Flight[]>{
 
     let url = data.default.server + data.default.port + data.default.url + '/flights/search';
-    url += '?flyingFrom=' + flyingFrom + '&flyingTo=' + flyingTo + '&date=2018/1/23';
+    url += '?flyingFrom=' + flyingFrom + '&flyingTo=' + flyingTo + '&date=' + date.toString();
     return this.http.get(url)
       .toPromise()
       .then(res => res.json() as Flight[])
