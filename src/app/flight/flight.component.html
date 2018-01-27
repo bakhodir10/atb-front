@@ -1,7 +1,7 @@
 <div class="jumbotron text-center">
   <h1>Airlines Ticket Booking</h1>
   <p>Book Early Fly Early!!</p>
-  <form class="form-inline">
+  <form class="form-inline" name="form">
     <div class="input-group">
 
       <table class="search-details">
@@ -24,13 +24,13 @@
         </tr>
         <tr>
           <td>
-            <input type="email" class="form-control" size="30" placeholder="Flying From" required>
+            <input type="text" class="form-control" size="30" name="from" placeholder="Flying From" required>
           </td>
           <td>
-            <input type="email" class="form-control" size="30" placeholder="Flying From" required>
+            <input type="text" [(ngModel)]="flight.to" name="to" class="form-control" size="30" placeholder="Flying To" required>
           </td>
           <td>
-            <input type="date" class="form-control" size="30" placeholder="Departing" required>
+            <input type="date" class="form-control" name="departure" size="30" placeholder="Departing" required>
           </td>
           <td>
             <div class="dropdown">
@@ -41,10 +41,9 @@
                 <li><a href="#">1 Adult</a></li>
               </ul>
             </div>
-
           </td>
           <td>
-            <button type="button" class="btn btn-danger">Search</button>
+            <button type="button" class="btn btn-danger" (click)="check()">Search</button>
           </td>
         </tr>
       </table>

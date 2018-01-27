@@ -20,16 +20,22 @@ import {BookingComponent} from './booking/booking.component';
 import {BookingServiceImpl} from './booking/booking.service.impl';
 import {LoginComponent} from './login/login.component';
 import {AuthService} from './login/auth.service';
-import { FormsModule } from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 import {AdminComponent} from './admin/admin.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {AirportCreateComponent} from './airport/create/airport.create.component';
+import {MatDialogModule} from '@angular/material'
+
 @NgModule({
   declarations: [
     AppComponent, CompanyComponent, AboutComponent, CustomerComponent,
     FlightComponent, AirportComponent, AirplaneComponent, BookingComponent,
-    LoginComponent,AdminComponent
+    LoginComponent, AdminComponent, AirportCreateComponent
   ],
   imports: [
-    BrowserModule, HttpModule, AppRouteModule, FormsModule
+    MatDialogModule, BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, BrowserModule,
+    HttpModule, AppRouteModule, FormsModule
   ],
   providers: [
     {
@@ -57,6 +63,9 @@ import {AdminComponent} from './admin/admin.component';
       useClass: BookingServiceImpl
     },
     AuthService
+  ],
+  entryComponents: [
+    AirportCreateComponent
   ],
   bootstrap: [AppComponent]
 })
