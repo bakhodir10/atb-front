@@ -1,7 +1,7 @@
 <div class="jumbotron text-center">
   <h1>Airlines Ticket Booking</h1>
   <p>Book Early Fly Early!!</p>
-  <form class="form-inline">
+  <form class="form-inline" name="form">
     <div class="input-group">
 
       <table class="search-details">
@@ -24,13 +24,13 @@
         </tr>
         <tr>
           <td>
-            <input type="email" class="form-control" size="30" placeholder="Flying From" required>
+            <input [(ngModel)]="flight.locationFrom" name="locationFrom" class="form-control" size="30" placeholder="Flying From">
           </td>
           <td>
-            <input type="email" class="form-control" size="30" placeholder="Flying From" required>
+            <input [(ngModel)]="flight.locationTo" name="locationTo" class="form-control" size="30" placeholder="Flying To">
           </td>
           <td>
-            <input type="date" class="form-control" size="30" placeholder="Departing" required>
+            <input [(ngModel)]="flight.date" class="form-control" name="date" size="30" placeholder="Date" type="date">
           </td>
           <td>
             <div class="dropdown">
@@ -44,10 +44,37 @@
 
           </td>
           <td>
-            <button type="button" class="btn btn-danger">Search</button>
+            <button type="button" class="btn btn-danger" (click)="searchFlight()">Search</button>
           </td>
         </tr>
       </table>
     </div>
   </form>
 </div>
+
+<div *ngIf="(flights.length > 0)">
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Airline</th>
+      <th scope="col">Flying From</th>
+      <th scope="col">Flying To</th>
+      <th scope="col">Price</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of flights">
+      <th scope="row">1</th>
+      <td></td>
+      <td>{{item.from.name}}</td>
+      <td>{{item.to.name}}</td>
+      <td>{{item.price}}</td>
+      <td><button class="btn btn-primary"  data-toggle="modal" data-target="#myModal">Book</button></td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+
