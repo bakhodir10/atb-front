@@ -24,13 +24,13 @@
         </tr>
         <tr>
           <td>
-            <input [(ngModel)]="flight.locationFrom" name="locationFrom" class="form-control" size="30" placeholder="Flying From">
+            <input [(ngModel)]="flight.locationFrom" required name="locationFrom" class="form-control" size="30" placeholder="Flying From">
           </td>
           <td>
-            <input [(ngModel)]="flight.locationTo" name="locationTo" class="form-control" size="30" placeholder="Flying To">
+            <input [(ngModel)]="flight.locationTo" required name="locationTo" class="form-control" size="30" placeholder="Flying To">
           </td>
           <td>
-            <input [(ngModel)]="flight.date" class="form-control" name="date" size="30" placeholder="Date" type="date">
+            <input [(ngModel)]="flight.date" required class="form-control" name="date" size="30" placeholder="Date" type="date">
           </td>
           <td>
             <div class="dropdown">
