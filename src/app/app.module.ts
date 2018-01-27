@@ -34,7 +34,7 @@ import {MatDialogModule} from '@angular/material'
     LoginComponent, AdminComponent, AirportCreateComponent
   ],
   imports: [
-    MatDialogModule, BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, BrowserModule,
+    BrowserAnimationsModule, MatDialogModule, MatButtonModule, MatCheckboxModule, BrowserModule,
     HttpModule, AppRouteModule, FormsModule
   ],
   providers: [

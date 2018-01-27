@@ -1,6 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {AirportCreateComponent} from './create/airport.create.component';
-import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from '@angular/material';
+import {MatDialog} from '@angular/material';
+import {Airport} from './airport.model';
+import {AirportService} from './airport.service';
 
 @Component({
   moduleId: module.id,
@@ -8,14 +10,28 @@ import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from '@angular/material';
   templateUrl: 'airport.component.html',
   styleUrls: ['airport.component.css']
 })
-export class AirportComponent{
+export class AirportComponent implements OnInit {
+  airports: Airport[];
 
-  constructor(public dialog: MatDialog) {
+  ngOnInit(): void {
+    this.getList();
+  }
+
+  constructor(public dialog: MatDialog,
+              @Inject('AirportService') private airportService: AirportService) {
+  }
+
+  getList(): void {
+    this.airportService.read().then(res => {
+      console.log(res);
+      this.airports = res
+    })
   }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AirportCreateComponent, {
-      width: '250px'
+      height: '200px',
+      width: '300px',
     });
 
     dialogRef.afterClosed().subscribe(result => {
