@@ -24,13 +24,13 @@
         </tr>
         <tr>
           <td>
-            <input [(ngModel)]="flight.locationFrom" name="locationFrom" class="form-control" size="30" placeholder="Flying From">
+            <input [(ngModel)]="flight.locationFrom" required name="locationFrom" class="form-control" size="30" placeholder="Flying From">
           </td>
           <td>
-            <input [(ngModel)]="flight.locationTo" name="locationTo" class="form-control" size="30" placeholder="Flying To">
+            <input [(ngModel)]="flight.locationTo" required name="locationTo" class="form-control" size="30" placeholder="Flying To">
           </td>
           <td>
-            <input [(ngModel)]="flight.date" class="form-control" name="date" size="30" placeholder="Date" type="date">
+            <input [(ngModel)]="flight.date" required class="form-control" name="date" size="30" placeholder="Date" type="date">
           </td>
           <td>
             <div class="dropdown">
@@ -51,3 +51,32 @@
     </div>
   </form>
 </div>
+
+<div *ngIf="(flights.length > 0)">
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Airline</th>
+      <th scope="col">Flying From</th>
+      <th scope="col">Flying To</th>
+      <th scope="col">Departure Time</th>
+      <th scope="col">Price</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of flights">
+      <th scope="row">1</th>
+      <td></td>
+      <td>{{item.from.name}}</td>
+      <td>{{item.to.name}}</td>
+      <td>{{item.time}}</td>
+      <td>{{item.price}}</td>
+      <td><button class="btn btn-primary"  routerLink="customers" >Book</button></td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+

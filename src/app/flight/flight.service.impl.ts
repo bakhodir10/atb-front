@@ -8,7 +8,7 @@ import {FlightService} from './flight.service';
 
 @Injectable()
 export class FlightServiceImpl implements FlightService {
-
+  dateStr : String;
   create(entity: Flight): Promise<Flight> {
     return undefined;
   }
@@ -37,9 +37,17 @@ export class FlightServiceImpl implements FlightService {
   }
 
   search(flyingFrom: string, flyingTo: string, date : Date): Promise<Flight[]>{
+    if(date == null || date === undefined){
+      date = new Date();
+      this.dateStr = date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate();
+    }
+    else{
+      this.dateStr = date.toString().replace('-','/').replace('-','/');
+    }
 
     let url = data.default.server + data.default.port + data.default.url + '/flights/search';
-    url += '?flyingFrom=' + flyingFrom + '&flyingTo=' + flyingTo + '&date=' + date.toString();
+    url += '?flyingFrom=' + flyingFrom + '&flyingTo=' + flyingTo + '&date=' + this.dateStr;
+    console.log(url);
     return this.http.get(url)
       .toPromise()
       .then(res => res.json() as Flight[])
