@@ -73,7 +73,7 @@
       <td>{{item.to.name}}</td>
       <td>{{item.time}}</td>
       <td>{{item.price}}</td>
-      <td><button class="btn btn-primary"  routerLink="customers" >Book</button></td>
+      <td><button class="btn btn-primary"  routerLink="bookings" (click)="storeFlightId(item);">Book</button></td>
     </tr>
 
     </tbody>
