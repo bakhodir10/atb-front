@@ -16,8 +16,8 @@ export class BookingServiceImpl extends BaseServiceImpl<Booking> implements Book
 
   bookFlight(customer: Customer, flight : Flight){
     this.booking.flight = flight;
-    this.booking.customers = customer;
-
-    this.create(this.booking);
+    this.booking.customer = customer;
+    console.log(this.booking);
+    super.create(this.booking);
   }
 }
