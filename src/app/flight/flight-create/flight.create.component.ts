@@ -21,6 +21,7 @@ export class FlightCreateComponent implements OnInit{
   }
   ngOnInit(): void {
     this.getAirplaneList();
+
   }
 
   onNoClick(): void {

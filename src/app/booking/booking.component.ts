@@ -22,6 +22,10 @@ export class BookingComponent implements OnInit{
 
   bookFlight(){
     this.flight = JSON.parse(localStorage.getItem('flight'));
-    this.bookingService.bookFlight(this.customer, this.flight);
+    this.booking.customer = this.customer;
+    this.booking.flight= this.flight;
+    this.bookingService.create(this.booking).then(res =>{
+      console.log(res);
+    });
   }
 }
