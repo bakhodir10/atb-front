@@ -13,12 +13,12 @@
             <label>Flying To</label>
           </td>
           <td>
-            <label>Departing</label>
+            <label>Departing Date</label>
           </td>
 
-          <td>
+         <!-- <td>
             <label>Passengers</label>
-          </td>
+          </td>-->
 
           <td></td>
         </tr>
@@ -32,7 +32,7 @@
           <td>
             <input [(ngModel)]="flight.date" required class="form-control" name="date" size="30" placeholder="Date" type="date">
           </td>
-          <td>
+          <!--<td>
             <div class="dropdown">
               <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Passenger
                 <span class="caret"></span></button>
@@ -42,7 +42,7 @@
               </ul>
             </div>
 
-          </td>
+          </td>-->
           <td>
             <button type="button" class="btn btn-danger" (click)="searchFlight()">Search</button>
           </td>

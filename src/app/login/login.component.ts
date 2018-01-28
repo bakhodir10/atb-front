@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
       this.password = localStorage.getItem('adminPassword');
 
       if(this.username === this.user.username && this.password === this.user.password){
-        window.location.href = 'http://localhost:4200/admin';
+        window.location.href = 'http://localhost:4200/admin/companies';
         return;
       }
 
@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
       this.password = localStorage.getItem('compAdminPassword');
 
       if(this.username === this.user.username && this.password === this.user.password){
-        window.location.href = 'http://localhost:4200/com-admin';
+        window.location.href = 'http://localhost:4200/com-admin/airplane-list';
         return;
       }
 
