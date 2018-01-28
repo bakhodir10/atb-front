@@ -26,12 +26,18 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {AirportCreateComponent} from './airport/create/airport.create.component';
 import {MatDialogModule} from '@angular/material'
+import {CompanyAdminComponent} from './com-admin/company.admin.component';
+import {AirplaneListComponent} from './airplane/airplane-list/airplane-list.component';
+import {FlightListComponent} from './flight/flight-list/flight-list.component';
+import {AirplaneCreateComponent} from './airplane/airplane-create/airplane.create.component';
+import {FlightCreateComponent} from './flight/flight-create/flight.create.component';
 
 @NgModule({
   declarations: [
     AppComponent, CompanyComponent, AboutComponent, CustomerComponent,
     FlightComponent, AirportComponent, AirplaneComponent, BookingComponent,
-    LoginComponent, AdminComponent, AirportCreateComponent
+    LoginComponent, AdminComponent, AirportCreateComponent, CompanyAdminComponent,
+    AirplaneListComponent, FlightListComponent, AirplaneCreateComponent, FlightCreateComponent
   ],
   imports: [
     BrowserAnimationsModule, MatDialogModule, MatButtonModule, MatCheckboxModule, BrowserModule,
@@ -65,7 +71,7 @@ import {MatDialogModule} from '@angular/material'
     AuthService
   ],
   entryComponents: [
-    AirportCreateComponent
+    AirportCreateComponent, AirplaneCreateComponent, FlightCreateComponent
   ],
   bootstrap: [AppComponent]
 })

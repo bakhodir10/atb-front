@@ -9,8 +9,12 @@ import {AirplaneComponent} from './airplane/airplane.component';
 import {BookingComponent} from './booking/booking.component';
 import {LoginComponent} from './login/login.component';
 import {AdminComponent} from './admin/admin.component';
+import {CompanyAdminComponent} from './com-admin/company.admin.component';
+import {Airplane} from './airplane/airplane.model';
+import {AirplaneListComponent} from './airplane/airplane-list/airplane-list.component';
+import {FlightListComponent} from './flight/flight-list/flight-list.component';
 
-const routes : Routes = [
+const routes: Routes = [
   {path: '', component: FlightComponent},
   {path: 'about', component: AboutComponent},
   {path: 'customers', component: CustomerComponent,},
@@ -22,6 +26,14 @@ const routes : Routes = [
       {path: 'companies', component: CompanyComponent},
     ]
   },
+  {
+    path: 'com-admin',
+    component: CompanyAdminComponent,
+    children: [
+      {path: 'airplane-list', component: AirplaneListComponent},
+      {path: 'flight-list', component: FlightListComponent}
+    ]
+  },
   {path: 'airplanes', component: AirplaneComponent},
   {path: 'bookings', component: BookingComponent},
   {path: 'login', component: LoginComponent}
@@ -31,4 +43,5 @@ const routes : Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class  AppRouteModule{}
+export class AppRouteModule {
+}
