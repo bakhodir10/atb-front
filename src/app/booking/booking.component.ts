@@ -25,7 +25,8 @@ export class BookingComponent implements OnInit{
     this.booking.customer = this.customer;
     this.booking.flight= this.flight;
     this.bookingService.create(this.booking).then(res =>{
-      console.log(res);
+      alert('You have successfully booke ticket. Your Ticket no is : ' + res);
+      window.location.href = 'http://localhost:4200';
     });
   }
 }
