@@ -5,16 +5,23 @@ import {Http} from '@angular/http';
 import {RequestOptions, Request, RequestMethod} from '@angular/http';
 import * as  data from './../app.config';
 import {FlightService} from './flight.service';
+import {Airplane} from '../airplane/airplane.model';
 
 @Injectable()
 export class FlightServiceImpl implements FlightService {
   dateStr : String;
   create(entity: Flight): Promise<Flight> {
-    return undefined;
+    const url = data.default.server + data.default.port + data.default.url + '/flights';
+    return this.http.post(url + '/create', entity)
+      .toPromise()
+      .then(res => res.json() as Flight)
   }
 
   read(): Promise<Flight[]> {
-    return undefined;
+    const url = data.default.server + data.default.port + data.default.url + '/flights';
+    return this.http.get(url)
+      .toPromise()
+      .then(res => res.json() as Flight[])
   }
 
   findOne(id: number): Promise<Flight> {
