@@ -27,6 +27,7 @@ export class AirplaneListComponent implements OnInit {
       this.airplanes = res;
     })
   }
+
   openDialog(): void {
     const dialogRef = this.dialog.open(AirplaneCreateComponent, {
       height: '200px',

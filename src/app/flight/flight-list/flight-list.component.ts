@@ -28,7 +28,7 @@ export class FlightListComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(FlightCreateComponent, {
-      height: '200px',
+      height: '400px',
       width: '300px',
     });
 

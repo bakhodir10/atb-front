@@ -2,8 +2,8 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {Flight} from '../flight.model';
 import {FlightService} from '../flight.service';
-import {Airplane} from '../../airplane/airplane.model';
-import {AirplaneService} from '../../airplane/airplane.service';
+import {AirportService} from '../../airport/airport.service';
+import {Airport} from '../../airport/airport.model';
 
 @Component({
   moduleId: module.id,
@@ -13,11 +13,11 @@ import {AirplaneService} from '../../airplane/airplane.service';
 })
 export class FlightCreateComponent implements OnInit{
   flight: Flight = new Flight();
-  airplanes : Airplane[];
+  airports : Airport[];
   constructor(public dialogRef: MatDialogRef<FlightCreateComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any,
               @Inject('FlightService') private flightService: FlightService,
-              @Inject('AirplaneService') private airplaneService: AirplaneService) {
+              @Inject('AirportService') private airportService: AirportService) {
   }
   ngOnInit(): void {
     this.getAirplaneList();
@@ -34,9 +34,14 @@ export class FlightCreateComponent implements OnInit{
     })
   }
 
+  change():void{
+
+  }
+
   getAirplaneList(): void{
-    this.airplaneService.read().then(res =>{
-      this.airplanes = res;
+    this.airportService.read().then(res =>{
+      this.airports = res;
+      console.log(res);
     })
   }
 }

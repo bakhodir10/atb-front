@@ -24,6 +24,7 @@ export class BookingComponent implements OnInit{
     this.flight = JSON.parse(localStorage.getItem('flight'));
     this.booking.customer = this.customer;
     this.booking.flight= this.flight;
+    console.log(this.booking);
     this.bookingService.create(this.booking).then(res =>{
       alert('You have successfully booke ticket. Your Ticket no is : ' + res);
       window.location.href = 'http://localhost:4200';
